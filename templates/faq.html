@@ -1,0 +1,51 @@
+{% extends 'parent/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="iq-breadcrumb-one  iq-bg-over iq-over-dark-50"
+         style="background-image: url({{ site_detail.faq_background.url }});">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-12">
+                    <nav aria-label="breadcrumb" class="text-center iq-breadcrumb-two">
+                        <h2 class="title">سوالات متداول</h2>
+                        <ol class="breadcrumb main-bg">
+                            <li class="breadcrumb-item"><a href="{% url 'movie:index' %}">خانه</a></li>
+                            <li class="breadcrumb-item active">سوالات متداول</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main container -->
+
+    <main id="main" class="site-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+
+                    <div class="iq-accordion iq-accordion-square">
+                        {% for qs in popular_questions %}
+                            <div class="iq-accordion-block iq-active 1">
+                                <div class="iq-accordion-title">
+                                    <div class="iq-icon-right">
+                                        <i aria-hidden="true" class="fa fa-minus active"></i>
+                                        <i aria-hidden="true" class="fa fa-plus inactive"></i>
+                                    </div>
+                                    <h4 class="mb-0 accordion-title iq-heading-title">
+                                        {{ qs.title }}
+                                    </h4>
+                                </div>
+                                <div class="iq-accordion-details" style="display: block;">
+                                    <p class="iq-content-text">{{ qs.description }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

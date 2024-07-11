@@ -1,0 +1,297 @@
+<div id="loading">
+    <div id="loading-center">
+    </div>
+</div>
+<header id="main-header">
+    <div class="main-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <nav class="navbar navbar-expand-lg navbar-light p-0">
+                        <a href="#" class="navbar-toggler c-toggler" data-toggle="collapse"
+                           data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                           aria-expanded="false" aria-label="Toggle navigation">
+                            <div class="navbar-toggler-icon" data-toggle="collapse">
+                                <span class="navbar-menu-icon navbar-menu-icon--top"></span>
+                                <span class="navbar-menu-icon navbar-menu-icon--middle"></span>
+                                <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
+                            </div>
+                        </a>
+                        <a class="navbar-brand" href="{% url 'movie:index' %}"> <img class="img-fluid logo"
+                                                                                     src="{{ site_detail.logo.url }}"
+                                                                                     alt="streamit"/> </a>
+
+                        <div class="mobile-more-menu">
+                            <a href="javascript:void(0);" class="more-toggle" id="dropdownMenuButton"
+                               data-toggle="more-toggle" aria-haspopup="true" aria-expanded="false">
+                                <i class="ri-more-line"></i>
+                            </a>
+                            <div class="more-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="navbar-right position-relative">
+                                    <ul class="d-flex align-items-center justify-content-end list-inline m-0">
+                                        <li>
+                                            <a href="#" class="search-toggle">
+                                                <i class="ri-search-line"></i>
+                                            </a>
+                                            <div class="search-box iq-search-bar">
+                                                <form action="#" class="searchbox">
+                                                    <div class="form-group position-relative">
+                                                        <input type="text" class="text search-input font-size-12"
+                                                               placeholder="type here to search...">
+                                                        <i class="search-link ri-search-line"></i>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item nav-icon">
+                                            <a href="#" class="search-toggle position-relative">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                                                     height="22" class="noti-svg">
+                                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                                    <path d="M18 10a6 6 0 1 0-12 0v8h12v-8zm2 8.667l.4.533a.5.5 0 0 1-.4.8H4a.5.5 0 0 1-.4-.8l.4-.533V10a8 8 0 1 1 16 0v8.667zM9.5 21h5a2.5 2.5 0 1 1-5 0z"/>
+                                                </svg>
+                                                <span class="bg-danger dots"></span>
+                                            </a>
+                                            <div class="iq-sub-dropdown">
+                                                <div class="iq-card shadow-none m-0">
+                                                    <div class="iq-card-body">
+                                                        {% for notification in notifications %}
+                                                            <a href="#" class="iq-sub-card">
+                                                                <div class="media align-items-center">
+                                                                    <img src="{{ notification.image.url }}"
+                                                                         class="img-fluid mr-3"
+                                                                         alt="streamit"/>
+                                                                    <div class="media-body">
+                                                                        <h6 class="mb-0 ">{{ notification.title }}</h6>
+                                                                        <small class="font-size-12">{{ notification.date }}</small>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {% if user.is_authenticated %}
+                                            <li>
+                                                <a href="#"
+                                                   class="iq-user-dropdown search-toggle d-flex align-items-center">
+                                                    {% if user.profile_image %}
+                                                        <img src="{{ user.profile_image }}"
+                                                             class="img-fluid avatar-40 rounded-circle"
+                                                             alt="user">
+                                                    {% else %}
+                                                        <img src="{{ site_detail.default_user_profile }}"
+                                                             class="img-fluid avatar-40 rounded-circle"
+                                                             alt="user">
+                                                    {% endif %}
+                                                </a>
+                                                <div class="iq-sub-dropdown iq-user-dropdown">
+                                                    <div class="iq-card shadow-none m-0">
+                                                        <div class="iq-card-body p-0 pl-3 pr-3">
+                                                            <a href="{% url 'user:manage_profile' %}"
+                                                               class="iq-sub-card setting-dropdown">
+                                                                <div class="media align-items-center">
+                                                                    <div class="right-icon">
+                                                                        <i class="ri-file-user-line text-primary"></i>
+                                                                    </div>
+                                                                    <div class="media-body ml-3">
+                                                                        <h6 class="mb-0 ">مدیریت نمایه</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="setting.html" class="iq-sub-card setting-dropdown">
+                                                                <div class="media align-items-center">
+                                                                    <div class="right-icon">
+                                                                        <i class="ri-settings-4-line text-primary"></i>
+                                                                    </div>
+                                                                    <div class="media-body ml-3">
+                                                                        <h6 class="mb-0 ">تنظیمات</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="pricing-plan-1.html"
+                                                               class="iq-sub-card setting-dropdown">
+                                                                <div class="media align-items-center">
+                                                                    <div class="right-icon">
+                                                                        <i class="ri-settings-4-line text-primary"></i>
+                                                                    </div>
+                                                                    <div class="media-body ml-3">
+                                                                        <h6 class="mb-0 ">قیمت پلن ها</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                            <a href="{% url 'user:logout' %}"
+                                                               class="iq-sub-card setting-dropdown">
+                                                                <div class="media align-items-center">
+                                                                    <div class="right-icon">
+                                                                        <i class="ri-logout-circle-line text-primary"></i>
+                                                                    </div>
+                                                                    <div class="media-body ml-3">
+                                                                        <h6 class="mb-0">خروج</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <a href="{% url 'user:login' %}"
+                                                   class="iq-user-dropdown search-toggle d-flex align-items-center">
+                                                    ثبت نام | ورود
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div class="menu-main-menu-container">
+                                <ul id="top-menu" class="navbar-nav ml-auto">
+                                    <li class="menu-item">
+                                        <a href="{% url 'movie:index' %}">خانه</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{% url 'movie:main_category' %}">دسته بندی</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{% url 'blog:index' %}">وبلاگ</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="show-category.html">برنامه های تلویزیونی</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{% url 'movie:contact_us' %}">ارتباط با ما</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="navbar-right menu-right">
+                            <ul class="d-flex align-items-center list-inline m-0">
+                                <li class="nav-item nav-icon">
+                                    <a href="#" class="search-toggle device-search">
+                                        <i class="ri-search-line"></i>
+                                    </a>
+                                    <div class="search-box iq-search-bar d-search">
+                                        <form action="#" class="searchbox">
+                                            <div class="form-group position-relative">
+                                                <input type="text" class="text search-input font-size-12"
+                                                       placeholder="برای جستجو اینجا را تایپ کنید ...">
+                                                <i class="search-link ri-search-line"></i>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </li>
+                                <li class="nav-item nav-icon">
+                                    <a href="#" class="search-toggle" data-toggle="search-toggle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22"
+                                             height="22"
+                                             class="noti-svg">
+                                            <path fill="none" d="M0 0h24v24H0z"></path>
+                                            <path d="M18 10a6 6 0 1 0-12 0v8h12v-8zm2 8.667l.4.533a.5.5 0 0 1-.4.8H4a.5.5 0 0 1-.4-.8l.4-.533V10a8 8 0 1 1 16 0v8.667zM9.5 21h5a2.5 2.5 0 1 1-5 0z"></path>
+                                        </svg>
+                                        <span class="bg-danger dots"></span>
+                                    </a>
+                                    <div class="iq-sub-dropdown">
+                                        <div class="iq-card shadow-none m-0">
+                                            <div class="iq-card-body">
+                                                {% for notification in notifications %}
+                                                    <a href="#" class="iq-sub-card">
+                                                        <div class="media align-items-center">
+                                                            <img src="{{ notification.image.url }}"
+                                                                 class="img-fluid mr-3"
+                                                                 alt="{{ notification.title }}"/>
+                                                            <div class="media-body">
+                                                                <h6 class="mb-0 ">{{ notification.title }}</h6>
+                                                                <small class="font-size-12">{{ notification.date }}</small>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% if user.is_authenticated %}
+                                    <li class="nav-item nav-icon">
+                                        <a href="#" class="iq-user-dropdown search-toggle p-0 d-flex align-items-center"
+                                           data-toggle="search-toggle">
+                                            {% if user.profile_image %}
+                                                <img src="{{ user.profile_image }}"
+                                                     class="img-fluid avatar-40 rounded-circle"
+                                                     alt="{{ user.fullname }}">
+                                            {% else %}
+                                                <img src="{{ site_detail.default_user_profile }}"
+                                                     class="img-fluid avatar-40 rounded-circle"
+                                                     alt="{{ user.fullname }}">
+                                            {% endif %}
+                                        </a>
+                                        <div class="iq-sub-dropdown iq-user-dropdown">
+                                            <div class="iq-card shadow-none m-0">
+                                                <div class="iq-card-body p-0 pl-3 pr-3">
+                                                    <a href="{% url 'user:manage_profile' %}"
+                                                       class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-file-user-line text-primary"></i>
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="my-0 ">مدیریت نمایه</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="setting.html" class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-settings-4-line text-primary"></i>
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="my-0 ">تنظیمات</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="pricing-plan-1.html" class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-settings-4-line text-primary"></i>
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="my-0 ">قیمت ها</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <a href="{% url 'user:logout' %}"
+                                                       class="iq-sub-card setting-dropdown">
+                                                        <div class="media align-items-center">
+                                                            <div class="right-icon">
+                                                                <i class="ri-logout-circle-line text-primary"></i>
+                                                            </div>
+                                                            <div class="media-body ml-3">
+                                                                <h6 class="my-0 ">خروج</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{% url 'user:login' %}">
+                                            ثبت نام | ورود
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header End -->

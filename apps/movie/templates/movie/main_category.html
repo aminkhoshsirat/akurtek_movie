@@ -1,0 +1,809 @@
+{% extends 'parent/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <section class="iq-main-slider p-0">
+        <div id="tvshows-slider" class="iq-rtl-direction">
+
+            <div>
+                <a href="movie-details.html">
+                    <div class="shows-img">
+                        <img src="Theme/images/movie-banner/1.jpg" class="w-100" alt="">
+                        <div class="shows-content">
+                            <h4 class="text-white mb-1">Open Dead Shot</h4>
+                            <div class="movie-time d-flex align-items-center">
+                                <div class="badge badge-secondary p-1 mr-2">13+</div>
+                                <span class="text-white">2 ساعت</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+        <div class="dropdown genres-box">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"><i>{{ categories.first.title }}</i>
+            </button>
+            <div class="dropdown-menu three-column" aria-labelledby="dropdownMenuButton">
+                {% for category in categories %}
+                    <a class="dropdown-item" href="{{ category.get_absolute_url }}">{{ category.title }}</a
+                {% endfor %}>
+            </div>
+        </div>
+    </section>
+    <!-- Slider End -->
+    <!-- MainContent -->
+    <div class="main-content">
+        <section id="iq-favorites">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 overflow-hidden">
+                        <div class="iq-main-header d-flex align-items-center justify-content-between">
+                            <h4 class="main-title">فیلم های پرفروش بالیوود</h4>
+                        </div>
+                        <div class="favorites-contens">
+                            <ul class="favorites-slider list-inline  row p-0 mb-0 iq-rtl-direction">
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/upcoming/01.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">The Last Breath</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">5+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/upcoming/02.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Last Night</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">22+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover">
+                                                    <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/upcoming/03.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">1980</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">25+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover">
+                                                    <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/upcoming/04.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Looters</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">11+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover">
+                                                    <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/upcoming/05.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Vugotronic</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">9+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover">
+                                                    <i class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="iq-upcoming-movie">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 overflow-hidden">
+                        <div class="iq-main-header d-flex align-items-center justify-content-between">
+                            <h4 class="main-title">بهترین فیلم های بنگالی</h4>
+                        </div>
+                        <div class="upcoming-contens">
+                            <ul class="favorites-slider list-inline row p-0 mb-0 iq-rtl-direction">
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/01.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">The Illusion</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">10+</div>
+                                                <span class="text-white">3 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/02.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Burning</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">13+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/03.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Hubby Kubby</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">9+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/04.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Open Dead Shot</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">16+</div>
+                                                <span class="text-white">1 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/05.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Jumboo Queen</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">15+</div>
+                                                <span class="text-white">3 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="iq-suggestede">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 overflow-hidden">
+                        <div class="iq-main-header d-flex align-items-center justify-content-between">
+                            <h4 class="main-title">فیلم هایی که توصیه می کنیم</h4>
+                        </div>
+                        <div class="suggestede-contens">
+                            <ul class="list-inline favorites-slider row p-0 mb-0 iq-rtl-direction">
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/06.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">The Lost Journey</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">20+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/07.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Boop Bitty</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">11+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/08.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Unknown Land</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">17+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/09.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Blood Block</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">13+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="slide-item">
+                                    <div class="block-images position-relative">
+                                        <div class="img-box">
+                                            <img src="Theme/images/movies/10.jpg" class="img-fluid" alt="">
+                                        </div>
+                                        <div class="block-description">
+                                            <h6 class="iq-title"><a href="show-details.html">Champions</a></h6>
+                                            <div class="movie-time d-flex align-items-center my-2">
+                                                <div class="badge badge-secondary p-1 mr-2">13+</div>
+                                                <span class="text-white">2 ساعت</span>
+                                            </div>
+                                            <div class="hover-buttons">
+                                                <a href="show-details.html" role="button" class="btn btn-hover"><i
+                                                        class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                    تماشا کن</a>
+                                            </div>
+                                        </div>
+                                        <div class="block-social-info">
+                                            <ul class="list-inline p-0 m-0 music-play-lists">
+                                                <li class="share">
+                                                    <span><i class="ri-share-fill"></i></span>
+                                                    <div class="share-box">
+                                                        <div class="d-flex align-items-center">
+                                                            <a href="https://www.facebook.com/sharer?u=https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-facebook-fill"></i></a>
+                                                            <a href="https://twitter.com/intent/tweet?text=Currentlyreading"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               class="share-ico"
+                                                               tabindex="0"><i class="ri-twitter-fill"></i></a>
+                                                            <a href="#"
+                                                               data-link="https://iqonic.design/wp-themes/streamit_wp/movie/shadow/"
+                                                               class="share-ico iq-copy-link" tabindex="0"><i
+                                                                    class="ri-links-fill"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <span><i class="ri-heart-fill"></i></span>
+                                                    <span class="count-box">19+</span>
+                                                </li>
+                                                <li><span><i class="ri-add-line"></i></span></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

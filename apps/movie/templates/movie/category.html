@@ -1,0 +1,20 @@
+{% for item in items %}
+    <div>
+        <a href="{{ item.get_absolute_url }}">
+            <div class="shows-img">
+                <img src="{{ item.image.url }}" class="w-100" alt="{{ item.title }}">
+                <div class="shows-content">
+                    <h4 class="text-white mb-1">{{ item.title }}</h4>
+                    <div class="movie-time d-flex align-items-center">
+                        <div class="badge badge-secondary p-1 mr-2">{{ item.age }}+</div>
+                        {% if item.time %}
+                            <span class="text-white">{{ item.time | time:"%H:%M:%S" }}</span>
+                        {% else %}
+                            <span class="text-white" >{{ item }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+{% endfor %}

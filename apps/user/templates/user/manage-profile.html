@@ -1,0 +1,53 @@
+{% extends 'parent/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <section class="m-profile manage-p">
+        <div class="container h-100">
+            <div class="row align-items-center justify-content-center h-100">
+                <div class="col-lg-10">
+                    <div class="sign-user_card">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <div class="upload_profile d-inline-block">
+                                    <img src="{{ user.profile_image.url }}" class="profile-pic rounded-circle img-fluid"
+                                         alt="user">
+                                    <div class="p-image">
+                                        <i class="ri-pencil-line upload-button"></i>
+                                        <input class="file-upload" type="file" accept="image/*">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-10 device-margin">
+                                <div class="profile-from">
+                                    <h4 class="mb-3">مدیریت نمایه</h4>
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        {% for field in form %}
+                                            <div class="form-group">
+                                                <label>{{ field.label }}</label>
+                                                <input type="text" class="form-control mb-0" id="exampleInputl2"
+                                                       placeholder="{{ field.value }}" autocomplete="off" required>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="d-flex">
+                                            <button type="submit" class="btn btn-hover">ذخیره</button>
+                                            <a href="{% url 'user:manage_profile' %}" class="btn btn-link">لغو</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="back-to-top">
+        <a class="top" href="#top" id="top"> <i class="fa fa-angle-up"></i> </a>
+    </div>
+
+
+
+{% endblock %}

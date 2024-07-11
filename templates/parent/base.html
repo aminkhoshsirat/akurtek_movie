@@ -1,0 +1,53 @@
+<!doctype html>
+<html dir="rtl" lang="en-US">
+{% load static %}
+{% load render_partial %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}"/>
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/dark.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/remixicon.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/select2.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/select2-bootstrap4.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/slick-animation.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/slick-theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/spacer.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/typography-rtl.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/variable.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}"/>
+</head>
+<body>
+{% render_partial 'apps.movie.views.HeaderView' %}
+{% block content %}{% endblock %}
+{% render_partial 'apps.movie.views.FooterView' %}
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+      <!-- Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <!-- Slick JS -->
+    <script src="{% static 'js/slick.min.js' %}"></script>
+      <!-- owl carousel Js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <!-- select2 Js -->
+    <script src="{% static 'js/select2.min.js' %}"></script>
+      <!-- Magnific Popup-->
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+      <!-- Slick Animation-->
+    <script src="{% static 'js/slick-animation.min.js' %}"></script>
+      <!-- Custom JS-->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/dj.js' %}"></script>
+</body>
+</html>

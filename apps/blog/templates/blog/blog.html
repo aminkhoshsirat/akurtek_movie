@@ -1,0 +1,166 @@
+{% extends 'parent/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="iq-breadcrumb-one  iq-bg-over iq-over-dark-50"
+         style="background-image: url({{ site_detail.blog_background.url }});">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-sm-12">
+                    <nav aria-label="breadcrumb" class="text-center iq-breadcrumb-two">
+                        <h2 class="title">وبلاگ</h2>
+                        <ol class="breadcrumb main-bg">
+                            <li class="breadcrumb-item"><a href="{% url 'movie:index' %}">خانه</a></li>
+                            <li class="breadcrumb-item active">وبلاگ</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main container -->
+
+    <main id="main" class="site-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-12">
+                    {% for blog in blogs %}
+                        <article>
+                            <div class="iq-blog-box">
+                                <div class="iq-blog-image">
+                                    <img width="1920" height="1080" src="{{ blog.image.url }}">
+                                </div>
+                                <div class="iq-blog-detail">
+                                    <div class="iq-blog-meta">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item">
+                                                <a href="#" class="iq-user"><i class="fa fa-user-o mr-1"
+                                                                               aria-hidden="true"></i>{{ blog.auther.auther.fullname }}
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i>
+                                                <span class="screen-reader-text">نوشته شده در</span>
+                                                <a href="#" rel="bookmark">
+                                                    <time datetime="2019-02-02T12:46:15+00:00">{{ blog.date | date:"%Y-%m-%d" }}</time>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="blog-title">
+                                        <h3 class="entry-title">
+                                            <a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a>
+                                        </h3>
+                                    </div>
+                                    <div class="blog-content">
+                                        <p>{{ blog.description }}</p>
+                                    </div>
+                                    <div class="blog-button">
+                                        <a class="button-link" href="{{ blog.get_absolute_url }}">بیشتر بخوانید<i
+                                                class="fa fa-angle-right"
+                                                aria-hidden="true"></i></a>
+                                    </div>
+                                    <ul class="iq-blogcat">
+                                        <li class="iq-tag-title"><i class="fa fa-film" aria-hidden="true"></i> دسته بندی
+                                            ها:
+                                        </li>
+
+                                        <li><a href="{{ blog.category.get_absolute_url }}">{{ blog.category.title }}</a></li>
+
+                                    </ul>
+                                    <ul class="iq-blogtag">
+                                        <li class="iq-tag-title">
+                                            <i class="fa fa-tags" aria-hidden="true"></i> برچسب ها:
+                                        </li>
+                                        {% for tag in blog.tags %}
+                                        <li><a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                    <a class=" btn btn-hover iq-button">
+                        <span>بارگذاری بیشتر</span>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="widget-area" aria-label="Blog Sidebar">
+                        <div id="search-2" class="widget widget_search">
+                            <form class="search-form">
+                                <label for="search-form">
+                                    <span class="input-group screen-reader-text">جستجو برای:</span>
+                                </label>
+                                <input type="search" class="search-field search__input" placeholder="جستجو" value=""
+                                       name="search">
+                                <button type="submit" class="search-submit">
+                                    <i class="ri-search-line"></i>
+                                    <span class="screen-reader-text">جستجو</span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="iq-widget-menu widget">
+                            <h5 class="widget-title">پست برتر</h5>
+                            <div class="list-inline iq-widget-menu">
+                                <ul class="iq-post">
+                                    {% for blog in top_blogs %}
+                                    <li>
+                                        <div class="post-img">
+                                            <div class="post-img-holder">
+                                                <a href="{{ blog.get_absolute_url }}"
+                                                   style="background-image: url('{{ blog.image.url }}');"></a>
+                                            </div>
+                                            <div class="post-blog">
+                                                <div class="blog-box">
+                                                    <ul class="list-inline">
+                                                        <li class="list-inline-item  mr-3">
+                                                            <a class="date-widget" href="#"><i
+                                                                    class="fa fa-calendar mr-2"
+                                                                    aria-hidden="true"></i>{{ blog.date | date:"%Y-%m-%d" }}</a>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="new-link" href="{{ blog.get_absolute_url }}"><h6>{{ blog.title }}</h6></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="categories-2" class="widget widget_categories">
+                            <h5 class="widget-title">دسته بندی ها</h5>
+                            <ul>
+                                {% for category in categories %}
+                                    <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div id="tag_cloud-2" class="widget widget_tag_cloud"><h5 class="widget-title">برچسب ها</h5>
+                            <div class="tagcloud">
+                                <ul class="wp-tag-cloud" role="list">
+                                    {% for tag in tags %}
+                                    <li><a href="{{ tag.get_absolute_url }}" class="tag-cloud-link ">{{ tag.title }}</a></li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="recent-posts-2" class="widget widget_recent_entries">
+                            <h5 class="widget-title">پستهای اخیر</h5>
+                            <ul>
+                                {% for blog in blogs %}
+                                <li>
+                                    <a href="{{ blog.get_absolute_url }}">
+                                        {{ blog.title }}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
