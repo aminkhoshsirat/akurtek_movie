@@ -7,3 +7,10 @@ function loginUser(){
 			'</div>'`);
     });
 }
+
+function getMovies(id){
+	$.get('/category/' + id).then(res => {
+		$('#tvshows-slider').html(res);
+		$('#category-title').html(id);
+	})
+}

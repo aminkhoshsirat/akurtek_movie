@@ -1,19 +1,36 @@
-from django.shortcuts import render, HttpResponse, redirect, Http404
+from django.shortcuts import render, HttpResponse, redirect, Http404, get_object_or_404
 from django.views.generic import View
 from utils.send_email import send_activation_code
 from django.contrib.auth import login, logout
 from django.utils.crypto import get_random_string
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.timezone import datetime
+from apps.panel.models import SiteDetailModel
 from redis import Redis
 from .forms import *
 
 re = Redis(host='localhost', port=6379, db=0)
 
 
-class ManageProfileView(View):
+class ManageProfileView(LoginRequiredMixin, View):
     def get(self, request):
         form = UserForm(instance=request.user)
-        return render(request, 'user/manage-profile.html', {'form': form})
+        user = request.user
+        if user.pricing:
+            if user.pricing > datetime.now():
+                pricing_amount = user.pricing - datetime.now()
+            else:
+                pricing_amount = None
+        else:
+            pricing_amount = None
+
+        site_detail = SiteDetailModel.objects.all().first()
+        context = {
+            'form': form,
+            'pricing_amount': pricing_amount,
+            'site_detail': site_detail,
+        }
+        return render(request, 'user/manage-profile.html', context)
 
     def post(self, request):
         form = UserForm(request.POST, request.FILES)
@@ -47,7 +64,7 @@ class LoginView(View):
                 return HttpResponse('کاربر یافت نشد')
 
 
-class LogOutView(View):
+class LogOutView(LoginRequiredMixin, View):
     def get(self, request):
         logout(request)
         return redirect('movie:index')
@@ -70,6 +87,7 @@ class SignUpView(View):
                     return HttpResponse('کاربر با این مشخصات وجود دارد')
                 else:
                     code = get_random_string(72)
+                    request.session['user_email'] = user.email
                     re.set(f'activation_code:{user.email}', code, ex=3600)
                     send_activation_code(user.email, code)
                     return HttpResponse('برای فعال سازی خساب ایمیل خود را چک کنید')
@@ -77,9 +95,26 @@ class SignUpView(View):
             else:
                 UserModel.objects.create_user(email=cd['email'], fullname=cd['fullname'], password=cd['password'])
                 code = get_random_string(72)
+                request.session['user_email'] = user.email
                 re.set(f'activation_code:{user.email}', code, ex=3600)
                 send_activation_code(user.email, code)
                 return HttpResponse('برای فعال سازی خساب ایمیل خود را چک کنید')
+
+
+class ActivationView(View):
+    def get(self, request, code):
+        email = request.sessin['email']
+        user = get_object_or_404(UserModel, email=email)
+        if user.is_active:
+            return render(request, 'user/activation.html', {'message': 'کاربر قبلا فعال شده'})
+        else:
+            user_code = re.get(f'activation_code:{user.email}')
+            if user_code == code:
+                user.is_active = True
+                user.save()
+                return render(request, 'user/activation.html', {'message': 'کاربر فغال شد'})
+            else:
+                raise Http404
 
 
 class ResetPasswordSendView(View):

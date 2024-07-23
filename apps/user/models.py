@@ -29,6 +29,7 @@ class CustomUserManager(BaseUserManager):
         """
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
+        extra_fields.setdefault("is_active", True)
 
         if extra_fields.get("is_staff") is not True:
             raise ValueError(_("Superuser must have is_staff=True."))
@@ -60,6 +61,7 @@ class UserModel(CustomUser):
     profile_image = models.ImageField('user/profiles', blank=True, null=True)
     register_date = jmodels.jDateTimeField(auto_now_add=True)
     birth_date = jmodels.jDateTimeField(null=True, blank=True)
+    pricing = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.email} - {self.fullname}'

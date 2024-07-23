@@ -11,7 +11,7 @@
                             <ul id="menu-footer-link-1" class="menu p-0">
                                 <li id="menu-item-7314"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7314">
-                                    <a href="#">شرایط استفاده</a>
+                                    <a href="{% url 'movie:about_us' %}">درباره ما</a>
                                 </li>
                                 <li id="menu-item-7316"
                                     class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7316">
@@ -35,10 +35,18 @@
                         ما را دنبال کنید :
                     </h6>
                     <ul class="info-share">
-                        <li><a target="_blank" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a target="_blank" href="#"><i class="fa fa-github"></i></a></li>
+                        {% if site_detail.facebook %}
+                            <li><a target="_blank" href="{{ site_detail.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                        {% endif %}
+                    {% if site_detail.twitter %}
+                        <li><a target="_blank" href="{{ site_detail.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                    {% endif %}
+                    {% if site_detail.google_plus %}
+                        <li><a target="_blank" href="{{ site_detail.google_plus }}"><i class="fa fa-google-plus"></i></a></li>
+                    {% endif %}
+                    {% if site_detail.github %}
+                        <li><a target="_blank" href="{{ site_detail.github }}"><i class="fa fa-github"></i></a></li>
+                    {% endif %}
                     </ul>
 
                 </div>
@@ -47,10 +55,10 @@
                         <div class="textwidget">
                             <h6 class="footer-link-title">اپلیکیشن ما</h6>
                             <div class="d-flex align-items-center">
-                                <a class="app-image" href="#">
-                                    <img src="{% static 'images/footer/01.jpg' %}" alt="play-store">
+                                <a class="app-image" href="{{ site_detail.application_google_play_url }}">
+                                    <img src="{{ site_detail.application_google_play_image.url }}" alt="play-store">
                                 </a><br>
-                                <a class="ml-3 app-image" href="#"><img src="{% static 'images/footer/02.jpg' %}"
+                                <a class="ml-3 app-image" href="{{ site_detail.application_ios_url }}"><img src="{{ site_detail.application_ios_image.url }}"
                                                                         alt="app-store"></a>
                             </div>
                         </div>

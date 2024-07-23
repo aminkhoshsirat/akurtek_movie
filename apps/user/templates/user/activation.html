@@ -1,0 +1,9 @@
+{% extends 'parent/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div>
+        {{ message }}
+    </div>
+    <br><br>
+    <div><a href="{% url 'movie:index' %}">بازگشت به خانه</a></div>
+{% endblock %}

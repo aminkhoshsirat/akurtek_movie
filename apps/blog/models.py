@@ -24,18 +24,13 @@ class BlogKeyWordModel(models.Model):
         return reverse('blog:tag', args=[self.url])
 
 
-class AutherModel(models.Model):
+class AutherModel(UserModel):
     name = models.CharField(max_length=500)
-    image = models.ImageField(upload_to='blog/auther/profiles')
     url = models.SlugField(unique=True, allow_unicode=True)
-    live_in = models.TextField()
-    date_joined = jmodels.jDateTimeField(auto_now_add=True)
     description = models.TextField()
     telegram_link = models.URLField()
     instagram_link = models.URLField()
     twitter_link = models.URLField()
-    post = models.CharField(max_length=1000)
-    active = models.BooleanField(default=True)
 
     def get_absolute_url(self):
         return reverse('blog:auther', args=[self.url])

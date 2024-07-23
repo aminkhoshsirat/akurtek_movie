@@ -9,11 +9,23 @@
                         <div class="row">
                             <div class="col-lg-2">
                                 <div class="upload_profile d-inline-block">
-                                    <img src="{{ user.profile_image.url }}" class="profile-pic rounded-circle img-fluid"
-                                         alt="user">
+                                    {% if user.profile_image %}
+                                        <img src="{{ user.profile_image.url }}"
+                                             class="profile-pic rounded-circle img-fluid"
+                                             alt="user">
+                                    {% endif %}
+                                    {% if site_detail.user_non_profile_image %}
+                                        <img src="{{ site_detail.user_non_profile_image.url }}"
+                                             class="profile-pic rounded-circle img-fluid"
+                                             alt="user">
+                                    {% endif %}
                                     <div class="p-image">
                                         <i class="ri-pencil-line upload-button"></i>
                                         <input class="file-upload" type="file" accept="image/*">
+                                    </div>
+                                    <br><br>
+                                    <div>
+                                        <p>بافی مانده اشتراک</p>{{ pricing_amount }}
                                     </div>
                                 </div>
                             </div>

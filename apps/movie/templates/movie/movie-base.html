@@ -1,0 +1,113 @@
+{% extends 'parent/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="video-container iq-main-slider">
+        <video class="video d-block" controls loop>
+            <source src="{{ movie.trailer.url }}" type="video/mp4">
+        </video>
+    </div>
+    <!-- Banner End -->
+    <!-- MainContent -->
+    <div class="main-content movi">
+        <section class="movie-detail container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="trending-info g-border">
+                        <h1 class="trending-text text-uppercase mt-0">{{ movie.title }}</h1>
+                        <ul class="p-0 list-inline d-flex align-items-center movie-content">
+                            {% for category in movie.category.all %}
+                                <li class="text-white">{{ category.title }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="d-flex align-items-center text-white text-detail">
+                            <span class="badge badge-secondary p-3">{{ movie.age }}+</span>
+                            <span class="ml-3">{{ movie.time | time:"g:i" }} ساعت</span>
+                            <span class="trending-year">{{ movie.product_year }}</span>
+                        </div>
+                        <p class="trending-dec w-100 mb-0">{{ movie.description }}</p>
+                        <ul class="list-inline p-0 mt-4 share-icons music-play-lists">
+                            <li><span><i class="ri-add-line"></i></span></li>
+                            <li><span><i class="ri-heart-fill"></i></span></li>
+                            <li class="share">
+                                <span><i class="ri-share-fill"></i></span>
+                                <div class="share-box">
+                                    <div class="d-flex align-items-center">
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={% url 'movie:movie_base' movie.url %}"
+                                           class="share-ico"><i class="ri-facebook-fill"></i></a>
+                                        <a href="https://twitter.com/intent/tweet?text={{ movie.url }}&url={% url 'movie:movie_base' movie.url %}"
+                                           class="share-ico"><i class="ri-twitter-fill"></i></a>
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&url={% url 'movie:movie_base' movie.url %}&title={{ movie.url }}"
+                                           class="share-ico"><i class="ri-links-fill"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="iq-favorites" class="s-margin iq-rtl-direction">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 overflow-hidden">
+                        <div class="iq-main-header d-flex align-items-center justify-content-between">
+                            <h4 class="main-title"><a href=""> مجموعه {{ movie.title }}</a></h4>
+                        </div>
+                        <div class="favorites-contens">
+                            <ul class="list-inline favorites-slider row p-0 mb-0">
+                                <li class="slide-item">
+                                    {% for movie in movie.movie_parts.all %}
+                                        <div class="block-images position-relative">
+                                            <div class="img-box">
+                                                <img src="{{ movie.image.url }}" class="img-fluid"
+                                                     alt="{{ movie.title }}">
+                                            </div>
+                                            <div class="block-description">
+                                                <h6 class="iq-title"><a
+                                                        href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></h6>
+                                                <div class="movie-time d-flex align-items-center my-2">
+                                                    <div class="badge badge-secondary p-1 mr-2">{{ movie.base.age }}+</div>
+                                                    <span class="text-white">{{ movie.time | time:"%H:%M" }} ساعت</span>
+                                                </div>
+                                                <div class="hover-buttons">
+                                                    <a href="{{ movie.get_absolute_url }}" class="btn btn-hover"><i
+                                                            class="fa fa-play mr-1" aria-hidden="true"></i>
+                                                        تماشا کن
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="block-social-info">
+                                                <ul class="list-inline p-0 m-0 music-play-lists">
+                                                    <li class="share">
+                                                        <span><i class="ri-share-fill"></i></span>
+                                                        <div class="share-box">
+                                                            <div class="d-flex align-items-center">
+
+                                                                <a href="https://www.facebook.com/sharer/sharer.php?u={% url 'movie:movie_detail' movie.url %}"
+                                                                   class="share-ico"><i
+                                                                        class="ri-facebook-fill"></i></a>
+                                                                <a href="https://twitter.com/intent/tweet?text={{ movie.url }}&url={% url 'movie:movie_detail' movie.url %}"
+                                                                   class="share-ico"><i class="ri-twitter-fill"></i></a>
+                                                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={% url 'movie:movie_detail' movie.url %}&title={{ movie.url }}"
+                                                                   class="share-ico"><i class="ri-links-fill"></i></a>
+
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li><span><i class="ri-heart-fill"></i></span>
+                                                        <span class="count-box">{{ movie.like }}</span></li>
+                                                    <li><span><i class="ri-add-line"></i></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        </li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+{% endblock %}

@@ -110,17 +110,7 @@
                                                                     </div>
                                                                 </div>
                                                             </a>
-                                                            <a href="pricing-plan-1.html"
-                                                               class="iq-sub-card setting-dropdown">
-                                                                <div class="media align-items-center">
-                                                                    <div class="right-icon">
-                                                                        <i class="ri-settings-4-line text-primary"></i>
-                                                                    </div>
-                                                                    <div class="media-body ml-3">
-                                                                        <h6 class="mb-0 ">قیمت پلن ها</h6>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
+                                                           
                                                             <a href="{% url 'user:logout' %}"
                                                                class="iq-sub-card setting-dropdown">
                                                                 <div class="media align-items-center">
@@ -162,6 +152,9 @@
                                     </li>
                                     <li class="menu-item">
                                         <a href="show-category.html">برنامه های تلویزیونی</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{% url 'payment:index' %}">خرید اشتراک</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="{% url 'movie:contact_us' %}">ارتباط با ما</a>
@@ -224,7 +217,7 @@
                                                      class="img-fluid avatar-40 rounded-circle"
                                                      alt="{{ user.fullname }}">
                                             {% else %}
-                                                <img src="{{ site_detail.default_user_profile }}"
+                                                <img src="{{ site_detail.default_user_profile.url }}"
                                                      class="img-fluid avatar-40 rounded-circle"
                                                      alt="{{ user.fullname }}">
                                             {% endif %}
